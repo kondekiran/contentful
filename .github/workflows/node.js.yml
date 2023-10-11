@@ -21,12 +21,12 @@ jobs:
       run: |
         npm ci
         npm run build
-      working-directory: path/to/your/app
+      working-directory: /home/runner/work/contentful/contentful
 
     - name: Bundle Contentful App
       run: |
         npx @contentful/app-scripts bundle --directory /home/runner/work/contentful/contentful
-      working-directory: path/to/your/app
+      working-directory: /home/runner/work/contentful/contentful
 
     - name: Deploy Contentful App
       uses: contentful/actions-app-deploy@v1
