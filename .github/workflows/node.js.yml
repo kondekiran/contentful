@@ -26,12 +26,6 @@ jobs:
     - name: Install @contentful/app-scripts
       run: npm install @contentful/app-scripts@1.13.0 --save-dev
       working-directory: /home/runner/work/contentful/contentful
-
-    - name: Bundle Contentful App
-      run: |
-        npx @contentful/app-scripts bundle --directory /home/runner/work/contentful/contentful
-      working-directory: /home/runner/work/contentful/contentful
-
     - name: Deploy Contentful App
       uses: contentful/actions-app-deploy@v1
       with:
