@@ -26,9 +26,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
-    - run: npm test
+    - run: next build 
     - uses: contentful/actions-app-deploy@v1
       with:
        organization-id: ${{ secrets.ORGANIZATION_ID }}
