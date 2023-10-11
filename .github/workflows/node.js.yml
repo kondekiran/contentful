@@ -26,13 +26,6 @@ jobs:
     - name: Install @contentful/app-scripts
       run: npm install @contentful/app-scripts@1.13.0 --save-dev
       working-directory: /home/runner/work/contentful/contentful
-
-    - name: Create Temporary Directory and Bundle Contentful App
-      run: |
-        mkdir -p /home/runner/work/temp-app
-        npx @contentful/app-scripts bundle --directory /home/runner/work/temp-app
-      working-directory: /home/runner/work/contentful/contentful
-
     - name: Deploy Contentful App
       uses: contentful/actions-app-deploy@v1
       with:
