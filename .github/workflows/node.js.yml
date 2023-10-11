@@ -28,7 +28,15 @@ jobs:
         cache: 'npm'
     - run: npm ci 
     - run: npm run build 
-    - run : pwd
+    - name: Deploy Contentful App
+    - run: npx @contentful/app-scripts bundle --/home/runner/work/contentful/contentful
+      working-directory: ./home/runner/work/contentful/contentful
+    - uses: contentful/actions-app-deploy@v1
+      with:
+        organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
+        app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
+        access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
+        bundle-dir: /home/runner/work/contentful/contentful
   
        
    
