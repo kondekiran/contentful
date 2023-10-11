@@ -17,10 +17,14 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Install dependencies 
+    - name: Install dependencies and build
       run: |
         npm ci
         npm run build
+      working-directory: /home/runner/work/contentful/contentful
+
+    - name: Install @contentful/app-scripts
+      run: npm install @contentful/app-scripts@1.13.0 --save-dev
       working-directory: /home/runner/work/contentful/contentful
 
     - name: Bundle Contentful App
@@ -35,6 +39,7 @@ jobs:
         app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
         access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
         bundle-dir: /home/runner/work/contentful/contentful
+
 
 
     
