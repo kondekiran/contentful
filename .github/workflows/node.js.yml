@@ -32,7 +32,7 @@ jobs:
         organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
         app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
         access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-        folder: /home/runner/work/temp-app
+        folder: /home/runner/work/contentful
         allow-tracking: true
 
     - name: Clean up temporary directory
