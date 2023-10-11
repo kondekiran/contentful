@@ -29,8 +29,6 @@ jobs:
     - run: npm ci 
     - run: npm run build 
     - name: Deploy Contentful App
-    - run: npx @contentful/app-scripts bundle --/home/runner/work/contentful/contentful
-      working-directory: ./home/runner/work/contentful/contentful
     - uses: contentful/actions-app-deploy@v1
       with:
         organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
