@@ -28,7 +28,6 @@ jobs:
         cache: 'npm'
     - run: npm ci 
     - run: npm run build 
-    - run: Run npx @contentful/app-scripts upload --help
     - uses: contentful/actions-app-deploy@v1
       with:
        organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
