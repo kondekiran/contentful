@@ -31,9 +31,9 @@ jobs:
     - run: Run npx @contentful/app-scripts upload --help
     - uses: contentful/actions-app-deploy@v1
       with:
-       organization-id: ${{ secrets.ORGANIZATION_ID }}
+       organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
        app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
-       access-token: ${{ secrets.ACCESS_TOKEN }}
+       access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
        folder: /home/runner/work/contentful/contentful
    
     
