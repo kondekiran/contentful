@@ -26,14 +26,24 @@ jobs:
     - name: Install @contentful/app-scripts
       run: npm install @contentful/app-scripts@1.13.0 --save-dev
       working-directory: /home/runner/work/contentful/contentful
+
+    - name: Create Temporary Directory and Bundle Contentful App
+      run: |
+        mkdir /home/runner/work/temp-app
+        npx @contentful/app-scripts bundle --directory /home/runner/work/temp-app
+      working-directory: /home/runner/work/contentful/contentful
+
     - name: Deploy Contentful App
       uses: contentful/actions-app-deploy@v1
       with:
         organization-id: ${{ secrets.CONTENTFUL_ORG_ID }}
         app-definition-id: ${{ secrets.APP_DEFINITION_ID }}
         access-token: ${{ secrets.CONTENTFUL_ACCESS_TOKEN }}
-        bundle-dir: /home/runner/work/contentful/contentful
+        folder: /home/runner/work/temp-app
+        allow-tracking: true
 
+    - name: Clean up temporary directory
+      run: rm -rf /home/runner/work/temp-app
 
 
     
